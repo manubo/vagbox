@@ -18,8 +18,8 @@ server {
     error_log /var/log/nginx/<%= node[:sys][:name] %>.error.log;
     access_log /var/log/nginx/<%= node[:sys][:name] %>.access.log;
 
-    location ~ ^/(images/|js/|css/|static/|robots.txt|humans.txt|favicon.ico) {
-        root $document_root;
+    location ~ ^/(.*\.html)$ {
+        root /srv/www/public;
         access_log off;
         expires max;
     }

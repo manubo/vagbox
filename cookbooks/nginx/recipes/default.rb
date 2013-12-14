@@ -15,7 +15,8 @@ package "nginx-full" do
   action :install
 end
 
-file "nginx.conf" do
+cookbook_file "nginx.conf" do
+  source "nginx.conf"
   path "#{node[:nginx][:conf_dir]}/nginx.conf"
   owner "root"
   group "root"
@@ -47,5 +48,5 @@ end
 
 service "nginx" do
   supports :status => true, :restart => true, :reload => true
-  action [ :enable, :reload ]
+  action [ :enable, :start ]
 end
