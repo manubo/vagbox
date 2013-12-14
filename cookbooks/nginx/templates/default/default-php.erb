@@ -1,0 +1,40 @@
+upstream phpfcgi {
+    server unix:/var/run/php5-fpm.sock;
+    # server 127.0.0.1:9000;
+}
+server {
+    listen 80;
+    listen 443 ssl;
+ 
+    ssl_certificate <%= node[:nginx][:ssl_cert_dir] %>/<%= node[:sys][:name] %>_cert.pem;
+    ssl_certificate_key <%= node[:nginx][:ssl_key_dir]%>/<%= node[:sys][:name] %>_key.pem;
+    ssl_protocols        SSLv3 TLSv1;
+    ssl_ciphers HIGH:!aNULL:!MD5;
+    
+    server_name <%= node[:sys][:name] %>.local;
+    root /srv/www/public;
+ 
+    error_log /var/log/nginx/<%= node[:sys][:name] %>.error.log;
+    access_log /var/log/nginx/<%= node[:sys][:name] %>.access.log;
+ 
+    # strip app.php/ prefix if it is present
+    rewrite ^/app/app\.php/?(.*)$ /app/$1 permanent;
+ 
+    location / {
+        index app.php;
+        try_files $uri @rewriteapp;
+    }
+ 
+    location @rewriteapp {
+        rewrite ^(.*)$ /app/app.php/$1 last;
+    }
+ 
+    # pass the PHP scripts to FastCGI server from upstream phpfcgi
+    location ~ ^/app/(app|app_dev|config)\.php(/|$) {
+        fastcgi_pass phpfcgi;
+        fastcgi_split_path_info ^(.+\.php)(/.*)$;
+        include fastcgi_params;
+        fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param  HTTPS off;
+    }
+}

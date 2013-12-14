@@ -1,0 +1,23 @@
+{
+  "name": "node-mongo",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": { },
+  "override_attributes": { 
+    "nginx": {
+      "mode": "node"
+    }
+  },
+  "description": "The role for a system using node.js with mongodb",
+  "run_list": [
+    "recipe[apt::sources]",
+    "recipe[apt]",
+    "recipe[dev]",
+    "recipe[tools]",
+    "recipe[python]",
+    "recipe[nginx]",
+    "recipe[redis]",
+    "recipe[mongodb]",
+    "recipe[node]"
+  ]
+}

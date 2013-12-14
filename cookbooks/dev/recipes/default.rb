@@ -1,24 +1,12 @@
-include_recipe "apt-update"
+include_recipe "apt"
 
 execute "ldconfig" do
 end
 
-package "build-essential" do
-  action :install
-end
+packages = %w{build-essential cmake libaio-dev openssl libssl-dev}
 
-package "cmake" do
-  action :install
-end
-
-package "libaio-dev" do
-  action :install
-end
-
-package "openssl" do
-  action :install
-end
-
-package "libssl-dev" do
-  action :install
+packages.each do |pkg|
+	package pkg do
+		action :install
+	end
 end

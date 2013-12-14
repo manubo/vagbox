@@ -1,3 +1,3 @@
-execute "apt-get-update" do
+execute "apt" do
   command "apt-get update"
 end

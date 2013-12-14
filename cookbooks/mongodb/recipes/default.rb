@@ -1,4 +1,4 @@
-include_recipe "apt-update"
+include_recipe "apt"
 
 cookbook_file "/etc/apt/sources.list.d/mongodb.list" do
   source "mongodb.list"
@@ -11,7 +11,7 @@ end
 execute "mongodb_keys" do
   command "sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10"
   action :nothing
-  notifies :run, "execute[apt-get-update]", :immediately
+  notifies :run, "execute[apt]", :immediately
 end
 
 package "mongodb-10gen" do

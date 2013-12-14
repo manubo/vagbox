@@ -1,15 +1,7 @@
-package "bzip2" do
-  action :install
-end
+packages = %w{bzip2 libbz2-dev curl vim git sendmail-bin sendmail}
 
-package "libbz2-dev" do
-  action :install
-end
-
-package "curl" do
-  action :install
-end
-
-package "vim" do
-  action :install
+packages.each do |pkg|
+	package pkg do
+		action :install
+	end
 end
