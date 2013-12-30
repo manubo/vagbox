@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.network :public_network, :bridge => 'en1: WLAN (AirPort)', ip: "192.168.0.109"
 
-  config.vm.synced_folder "shared", "/srv/www"
+  config.vm.synced_folder "www", "/srv/www"
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", "1024"]
