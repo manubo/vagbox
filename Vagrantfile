@@ -1,4 +1,4 @@
-name = "webrtc"
+name = "materia-medica-2"
 
 Vagrant.configure("2") do |config|
   config.vm.box = "wheezy64"
@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
         :sys => {
             :name => name
         },
-        :php55 => {
+        :php5 => {
             :libversion => "20121212"
         }
     }
@@ -27,7 +27,7 @@ Vagrant.configure("2") do |config|
 
     chef.cookbooks_path = ["cookbooks"]
     chef.roles_path = "roles"
-    chef.add_role "node-mongo"
+    chef.add_role "php-mysql"
   end
 end
 
