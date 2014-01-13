@@ -20,6 +20,6 @@ bash "php5-phalcon" do
         cd ../..
         rm -rf cphalcon
     EOH
-    creates "#{node[:php55][:exension_dir]}/phalcon.so"
+    creates "#{node[:php5][:exension_dir]}/phalcon.so"
     notifies :restart, "service[php5-fpm]"
 end

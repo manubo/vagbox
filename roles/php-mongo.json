@@ -1,0 +1,31 @@
+{
+  "name": "php-mongo",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": { },
+  "description": "The role for a system using PHP 5.5 with mongodb",
+  "run_list": [
+    "recipe[apt::sources]",
+    "recipe[apt::dotdeb]",
+    "recipe[apt::dotdeb-php]",
+    "recipe[apt]",
+    "recipe[dev]",
+    "recipe[tools]",
+    "recipe[python]",
+    "recipe[nginx]",
+    "recipe[redis]",
+    "recipe[mongodb]",
+    "recipe[php5]",
+    "recipe[php5::cli]",
+    "recipe[php5::dev]",
+    "recipe[php5::gd]",
+    "recipe[php5::intl]",
+    "recipe[php5::gettext]",
+    "recipe[php5::mongo]",
+    "recipe[php5::redis]",
+    "recipe[php5::curl]",
+    "recipe[php5::mcrypt]",
+    "recipe[php5::xdebug]",
+    "recipe[php5::pear]"
+  ]
+}

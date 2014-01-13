@@ -1,6 +1,6 @@
 execute "pecl install mongo" do
   user "root"
-  creates "#{node[:php55][:extension_dir]}/mongo.so"
+  creates "#{node[:php5][:extension_dir]}/mongo.so"
   notifies :restart, "service[php5-fpm]"
 end
 
