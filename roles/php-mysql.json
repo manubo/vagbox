@@ -26,6 +26,7 @@
     "recipe[php5::curl]",
     "recipe[php5::mcrypt]",
     "recipe[php5::xdebug]",
-    "recipe[php5::pear]"
+    "recipe[php5::pear]",
+    "recipe[composer]"
   ]
 }
