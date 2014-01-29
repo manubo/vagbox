@@ -1,0 +1,24 @@
+server {
+    listen       8080;
+    server_name  <%= node[:sys][:name] %>.local;
+
+    error_log   /var/log/nginx/<%= node[:sys][:name] %>.error.log;
+    access_log  /var/log/nginx/<%= node[:sys][:name] %>.access.log;
+
+    location ~ ^/_cluster(/|$) {
+        return 403;
+        break;
+    }
+
+    location / {
+        rewrite ^/head$ /_plugin/head;
+
+        # Pass requests to elasticsearch
+        proxy_pass http://localhost:9200;
+        proxy_redirect off;
+          
+        proxy_set_header  X-Real-IP  $remote_addr;
+        proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header  Host $http_host;
+    }
+}

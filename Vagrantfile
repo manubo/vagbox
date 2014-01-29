@@ -1,9 +1,9 @@
-name = "materia-medica-2"
+name = "elasticsearch"
 
 Vagrant.configure("2") do |config|
   config.vm.box = "wheezy64"
 
-  config.vm.network :private_network, ip: "192.168.77.20"
+  config.vm.network :private_network, ip: "192.168.77.33"
 
   config.vm.synced_folder "www", "/srv/www"
 
@@ -20,6 +20,9 @@ Vagrant.configure("2") do |config|
         },
         :php5 => {
             :libversion => "20121212"
+        },
+        :elasticsearch => {
+            :version => "0.90.10"
         }
     }
 
@@ -27,7 +30,7 @@ Vagrant.configure("2") do |config|
 
     chef.cookbooks_path = ["cookbooks"]
     chef.roles_path = "roles"
-    chef.add_role "php-mysql"
+    chef.add_role "php-mysql-es"
   end
 end
 
