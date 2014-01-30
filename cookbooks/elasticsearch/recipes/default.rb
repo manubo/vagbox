@@ -15,8 +15,8 @@ template "elasticsearch" do
   mode "0644"
 end
 
-link "#{node[:nginx][:conf_dir]}/sites-available/elasticsearch" do
-  to "#{node[:nginx][:conf_dir]}/sites-enables/elasticsearch"
+link "#{node[:nginx][:conf_dir]}/sites-enabled/elasticsearch" do
+  to "#{node[:nginx][:conf_dir]}/sites-available/elasticsearch"
 end
 
 service "elasticsearch" do
