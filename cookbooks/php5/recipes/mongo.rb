@@ -16,3 +16,9 @@ link "/etc/php5/fpm/conf.d/20-mongo.ini" do
   owner "root"
   group "root"
 end
+
+link "/etc/php5/cli/conf.d/20-mongo.ini" do
+  to "/etc/php5/mods-available/mongo.ini"
+  owner "root"
+  group "root"
+end
