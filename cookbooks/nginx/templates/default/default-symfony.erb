@@ -12,13 +12,13 @@ server {
     ssl_ciphers HIGH:!aNULL:!MD5;
     
     server_name <%= node[:sys][:name] %>.local;
-    root /srv/www/public;
+    root /srv/www/web;
  
     error_log /var/log/nginx/<%= node[:sys][:name] %>.error.log;
     access_log /var/log/nginx/<%= node[:sys][:name] %>.access.log;
  
     # strip app.php/ prefix if it is present
-    rewrite ^/app/app\.php/?(.*)$ /app/$1 permanent;
+    rewrite ^/app\.php/?(.*)$ /$1 permanent;
  
     location / {
         index app.php;
@@ -26,15 +26,14 @@ server {
     }
  
     location @rewriteapp {
-        rewrite ^(.*)$ /app/app.php/$1 last;
+        rewrite ^(.*)$ /app.php/$1 last;
     }
  
     # pass the PHP scripts to FastCGI server from upstream phpfcgi
-    location ~ ^/app/(app|app_dev|config)\.php(/|$) {
+    location ~ ^/(app|app_dev|config)\.php(/|$) {
         fastcgi_pass phpfcgi;
         fastcgi_split_path_info ^(.+\.php)(/.*)$;
         include fastcgi_params;
         fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        fastcgi_param  HTTPS off;
     }
 }
