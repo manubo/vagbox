@@ -1,0 +1,27 @@
+{
+  "name": "ruby-mysql",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": { },
+  "override_attributes": { 
+    "nginx": {
+      "mode": "node"
+    }
+  },
+  "description": "The role for a system using Ruby on Rails with MySQL",
+  "run_list": [
+    "recipe[apt::sources]",
+    "recipe[apt::dotdeb]",
+    "recipe[apt]",
+    "recipe[dev]",
+    "recipe[tools]",
+    "recipe[python]",
+    "recipe[nginx]",
+    "recipe[redis]",
+    "recipe[mysql]",
+    "recipe[node]",
+    "recipe[ruby]",
+    "recipe[ruby::thin]",
+    "recipe[ruby::rails]"
+  ]
+}

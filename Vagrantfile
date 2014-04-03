@@ -1,9 +1,9 @@
-name = "symfony-mongo"
+name = "rura"
 
 Vagrant.configure("2") do |config|
   config.vm.box = "wheezy64"
 
-  config.vm.network :private_network, ip: "192.168.77.30"
+  config.vm.network :private_network, ip: "192.168.77.33"
 
   config.vm.synced_folder "www", "/srv/www"
 
@@ -16,16 +16,14 @@ Vagrant.configure("2") do |config|
   config.vm.provision :chef_solo do |chef|
     chef.json = {
         :sys => {
-            :name => name
-        },
-        :php5 => {
-            :libversion => "20121212"
+          :name => name
         },
         :nginx => {
-            :mode => "symfony"
+          :mode => "rails"
         },
-        :elasticsearch => {
-            :version => "0.90.10"
+        :ruby => {
+          :version => "2.1.1",
+          :gemset => "rails"
         }
     }
 
@@ -33,7 +31,7 @@ Vagrant.configure("2") do |config|
 
     chef.cookbooks_path = ["cookbooks"]
     chef.roles_path = "roles"
-    chef.add_role "php-mongo"
+    chef.add_role "ruby-mysql"
   end
 end
 
