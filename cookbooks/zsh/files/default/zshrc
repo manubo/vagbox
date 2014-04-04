@@ -1,0 +1,12 @@
+umask 002
+
+# Load the other dotfiles
+for file in ~/.dots/{keys,prompt,exports,aliases,paths,completion}; do
+    [ -r "$file" ] && source "$file"
+done
+unset file
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi

@@ -5,7 +5,7 @@
   "default_attributes": { },
   "override_attributes": { 
     "nginx": {
-      "mode": "node"
+      "mode": "rails"
     }
   },
   "description": "The role for a system using Ruby on Rails with MySQL",
@@ -14,14 +14,13 @@
     "recipe[apt::dotdeb]",
     "recipe[apt]",
     "recipe[dev]",
+    "recipe[zsh]",
     "recipe[tools]",
+    "recipe[rbenv]",
     "recipe[python]",
+    "recipe[node]",
     "recipe[nginx]",
     "recipe[redis]",
-    "recipe[mysql]",
-    "recipe[node]",
-    "recipe[ruby]",
-    "recipe[ruby::thin]",
-    "recipe[ruby::rails]"
+    "recipe[mysql]"
   ]
 }

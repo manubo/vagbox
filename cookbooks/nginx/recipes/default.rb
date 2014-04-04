@@ -39,11 +39,15 @@ cookbook_file "cert.pem" do
   mode "0600"
 end
 
-template "default-#{node[:nginx][:mode]}" do
-  path "#{node[:nginx][:conf_dir]}/sites-available/default"
+template "#{node[:nginx][:conf_dir]}/sites-available/default" do
+  source "default-#{node[:nginx][:mode]}.erb"
   owner "root"
   group "root"
   mode "0644"
+end
+
+link "#{node[:nginx][:conf_dir]}/sites-enabled/default" do
+  to "#{node[:nginx][:conf_dir]}/sites-available/default"
 end
 
 service "nginx" do

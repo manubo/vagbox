@@ -15,16 +15,15 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.json = {
-        :sys => {
-          :name => name
-        },
-        :nginx => {
-          :mode => "rails"
-        },
-        :ruby => {
-          :version => "2.1.1",
-          :gemset => "rails"
-        }
+      "sys" => {
+        :name => name
+      },
+      :node => {
+        :version => "v0.11.9"
+      },
+      :ruby => {
+        :version => "2.1.1"
+      }
     }
 
     chef.log_level = :debug
