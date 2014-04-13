@@ -1,4 +1,4 @@
-name = "rura"
+name = "includeCache"
 
 Vagrant.configure("2") do |config|
   config.vm.box = "wheezy64"
@@ -18,11 +18,14 @@ Vagrant.configure("2") do |config|
       "sys" => {
         :name => name
       },
+      :php5 => {
+        :libversion => "20121212"
+      },
       :node => {
         :version => "v0.11.9"
       },
-      :ruby => {
-        :version => "2.1.1"
+      :nginx => {
+        :mode => 'symfony'
       }
     }
 
