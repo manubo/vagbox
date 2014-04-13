@@ -15,6 +15,7 @@
     "recipe[nginx]",
     "recipe[redis]",
     "recipe[mysql]",
+    "recipe[node]",
     "recipe[php5]",
     "recipe[php5::cli]",
     "recipe[php5::dev]",

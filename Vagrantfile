@@ -1,4 +1,4 @@
-name = "includeCache"
+name = "cachedIncludes"
 
 Vagrant.configure("2") do |config|
   config.vm.box = "wheezy64"
