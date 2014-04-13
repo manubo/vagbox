@@ -33,7 +33,7 @@ Vagrant.configure("2") do |config|
 
     chef.cookbooks_path = ["cookbooks"]
     chef.roles_path = "roles"
-    chef.add_role "ruby-mysql"
+    chef.add_role "php-mysql"
   end
 end
 
