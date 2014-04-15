@@ -3,7 +3,7 @@ name = "cachedIncludes"
 Vagrant.configure("2") do |config|
   config.vm.box = "wheezy64"
 
-  config.vm.network :private_network, ip: "192.168.77.33"
+  config.vm.network :private_network, ip: "192.168.77.40"
 
   config.vm.synced_folder "www", "/srv/www"
 
