@@ -12,9 +12,6 @@
   "run_list": [
     "recipe[apt::sources]",
     "recipe[apt]",
-    "recipe[dev]",
-    "recipe[tools]",
-    "recipe[python]",
     "recipe[nginx]",
     "recipe[redis]",
     "recipe[mongodb]",
