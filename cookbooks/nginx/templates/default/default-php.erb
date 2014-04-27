@@ -6,16 +6,16 @@ server {
     listen 80;
     listen 443 ssl;
 
-    ssl_certificate <%= node[:nginx][:ssl_cert_dir] %>/<%= node[:sys][:name] %>_cert.pem;
-    ssl_certificate_key <%= node[:nginx][:ssl_key_dir]%>/<%= node[:sys][:name] %>_key.pem;
+    ssl_certificate <%= node[:nginx][:ssl_cert_dir] %>/cert.pem;
+    ssl_certificate_key <%= node[:nginx][:ssl_key_dir]%>/key.pem;
     ssl_protocols        SSLv3 TLSv1;
     ssl_ciphers HIGH:!aNULL:!MD5;
 
-    server_name <%= node[:sys][:name] %>.local;
-    root /srv/www/public;
+    server_name HOST_NAME.local;
+    root /srv/www/HOST_NAME/public;
 
-    error_log /var/log/nginx/<%= node[:sys][:name] %>.error.log;
-    access_log /var/log/nginx/<%= node[:sys][:name] %>.access.log;
+    error_log /var/log/nginx/HOST_NAME.error.log;
+    access_log /var/log/nginx/HOST_NAME.access.log;
 
     # strip app.php/ prefix if it is present
     rewrite ^/index\.php/?(.*)$ /$1 permanent;

@@ -12,11 +12,11 @@ server {
     ssl_protocols        SSLv3 TLSv1;
     ssl_ciphers HIGH:!aNULL:!MD5;
     
-    server_name <%= node[:sys][:name] %>.local;
+    server_name HOST_NAME.local;
     root /srv/www/public;
  
-    error_log /var/log/nginx/<%= node[:sys][:name] %>.error.log;
-    access_log /var/log/nginx/<%= node[:sys][:name] %>.access.log;
+    error_log /var/log/nginx/HOST_NAME.error.log;
+    access_log /var/log/nginx/HOST_NAME.access.log;
 
     location ~ ^/(.*\.html)$ {
         root /srv/www/public;

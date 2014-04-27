@@ -25,7 +25,7 @@ end
 
 cookbook_file "key.pem" do
   source "key.pem"
-  path "#{node[:nginx][:ssl_key_dir]}/#{node[:sys][:name]}_key.pem"
+  path "#{node[:nginx][:ssl_key_dir]}/key.pem"
   owner "root"
   group "root"
   mode "0600"
@@ -33,7 +33,7 @@ end
 
 cookbook_file "cert.pem" do
   source "cert.pem"
-  path "#{node[:nginx][:ssl_cert_dir]}/#{node[:sys][:name]}_cert.pem"
+  path "#{node[:nginx][:ssl_cert_dir]}/cert.pem"
   owner "root"
   group "root"
   mode "0600"
