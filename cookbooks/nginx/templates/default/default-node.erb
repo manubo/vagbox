@@ -13,13 +13,13 @@ server {
     ssl_ciphers HIGH:!aNULL:!MD5;
     
     server_name HOST_NAME.local;
-    root /srv/www/public;
+    root /srv/httpd/public;
  
     error_log /var/log/nginx/HOST_NAME.error.log;
     access_log /var/log/nginx/HOST_NAME.access.log;
 
     location ~ ^/(.*\.html)$ {
-        root /srv/www/public;
+        root /srv/httpd/public;
         access_log off;
         expires max;
     }
