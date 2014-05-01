@@ -1,9 +1,9 @@
-name = "php-mysql"
+name = "php-mongo"
 
 Vagrant.configure("2") do |config|
   config.vm.box = "wheezy64"
 
-  config.vm.network :private_network, ip: "192.168.77.10"
+  config.vm.network :private_network, ip: "192.168.77.11"
 
   config.vm.synced_folder "httpd", "/srv/httpd"
 
@@ -34,7 +34,7 @@ Vagrant.configure("2") do |config|
 
     chef.cookbooks_path = ["cookbooks"]
     chef.roles_path = "roles"
-    chef.add_role "php-mysql"
+    chef.add_role "php-mongo"
   end
 end
 

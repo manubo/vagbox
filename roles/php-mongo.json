@@ -9,9 +9,6 @@
     "recipe[apt::dotdeb]",
     "recipe[apt::dotdeb-php]",
     "recipe[apt]",
-    "recipe[dev]",
-    "recipe[tools]",
-    "recipe[python]",
     "recipe[nginx]",
     "recipe[redis]",
     "recipe[mongodb]",
@@ -26,7 +23,6 @@
     "recipe[php5::curl]",
     "recipe[php5::mcrypt]",
     "recipe[php5::xdebug]",
-    "recipe[php5::pear]",
     "recipe[composer]"
   ]
 }
