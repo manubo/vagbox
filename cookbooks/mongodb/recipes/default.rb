@@ -11,14 +11,14 @@ end
 execute "mongodb_keys" do
   command "sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10"
   action :nothing
-  notifies :run, "execute[apt]", :immediately
+  notifies :run, "execute[apt-update]", :immediately
 end
 
-package "mongodb-10gen" do
-  version "2.4.8"
+package "mongodb-org" do
+  action :install
 end
 
-service "mongodb" do
+service "mongod" do
   supports :status => true, :restart => true
   action [:enable, :start]
 end

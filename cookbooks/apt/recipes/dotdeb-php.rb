@@ -7,5 +7,5 @@ cookbook_file "/etc/apt/sources.list.d/dotdeb-php.list" do
   owner "root"
   group "root"
   notifies :run, "bash[dotdeb_keys]", :immediately
-  notifies :run, resources(:execute => "apt"), :immediately
+  notifies :run, resources(:execute => "apt-update"), :immediately
 end

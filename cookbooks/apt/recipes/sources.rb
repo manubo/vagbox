@@ -5,5 +5,5 @@ cookbook_file "/etc/apt/sources.list" do
   mode 0644
   owner "root"
   group "root"
-  notifies :run, resources(:execute => "apt"), :immediately
+  notifies :run, resources(:execute => "apt-update"), :immediately
 end

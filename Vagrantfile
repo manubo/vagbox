@@ -27,6 +27,9 @@ Vagrant.configure("2") do |config|
       },
       :nginx => {
         :mode => 'symfony'
+      },
+      :mongodb => {
+        :version => '2.6.0'
       }
     }
 
