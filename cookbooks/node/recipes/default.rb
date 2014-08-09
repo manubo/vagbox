@@ -9,10 +9,9 @@ bash "nodejs_install" do
     cwd "/tmp/node"
     code <<-EOH
         git checkout #{node[:node][:version]}
-        $PYTHON ./configure
+        ./configure
         make
         make install
-        rm -rf /tmp/node
     EOH
     only_if "test -d /tmp/node"
     action :nothing

@@ -1,9 +1,9 @@
-name = "php-mongo"
+name = "node-mongo"
 
 Vagrant.configure("2") do |config|
   config.vm.box = "wheezy64"
 
-  config.vm.network :private_network, ip: "192.168.77.11"
+  config.vm.network :private_network, ip: "192.168.77.12"
 
   config.vm.synced_folder "www", "/srv/www"
 
@@ -23,10 +23,10 @@ Vagrant.configure("2") do |config|
         :libversion => "20121212"
       },
       :node => {
-        :version => "v0.11.9"
+        :version => "v0.10.30"
       },
       :nginx => {
-        :mode => 'symfony'
+        :mode => 'node'
       },
       :mongodb => {
         :version => '2.6.0'
@@ -37,7 +37,7 @@ Vagrant.configure("2") do |config|
 
     chef.cookbooks_path = ["cookbooks"]
     chef.roles_path = "roles"
-    chef.add_role "php-mongo"
+    chef.add_role "node-mongo"
   end
 end
 
