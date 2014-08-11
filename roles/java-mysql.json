@@ -1,0 +1,18 @@
+{
+  "name": "java-mysql",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": { },
+  "override_attributes": { 
+  },
+  "description": "The role for a system using java with mysql",
+  "run_list": [
+    "recipe[apt::sources]",
+    "recipe[apt]",
+    "recipe[java-openjdk-7-jdk]",
+    "recipe[maven]",
+    "recipe[jboss-as]",
+    "recipe[redis]",
+    "recipe[mysql]"
+  ]
+}
