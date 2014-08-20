@@ -1,5 +1,7 @@
-package "python" do
+package "python3" do
   action :install
 end
 
-include_recipe "python::pip"
+package "python3-pip" do
+  action :install
+end
