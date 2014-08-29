@@ -1,5 +1,3 @@
-include_recipe "apt"
-
 cookbook_file "/etc/apt/sources.list.d/mongodb.list" do
   source "mongodb.list"
   mode 0644

@@ -1,1 +1,1 @@
-default[:node][:version] = "v0.10.30"
+default[:node][:version] = "v0.10.25"
