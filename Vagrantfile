@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/srv/"
 
   config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--memory", "1024"]
+    vb.customize ["modifyvm", :id, "--memory", "2048"]
     vb.customize ["modifyvm", :id, "--name", name]
     vb.customize ["modifyvm", :id, "--cpus", 1]
     vb.gui = false
@@ -29,6 +29,9 @@ Vagrant.configure("2") do |config|
 
     chef.cookbooks_path = ["cookbooks"]
     chef.roles_path = "roles"
-    chef.add_role "php-mysql"
+    chef.add_role "node-mongo"
+    chef.add_recipe "tesseract"
+    chef.add_recipe "tesseract::eng"
+    chef.add_recipe "tesseract::deu"
   end
 end
