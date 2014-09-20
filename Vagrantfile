@@ -1,9 +1,9 @@
-name = "php-mysql"
+name = "node-mongo"
 
 Vagrant.configure("2") do |config|
   config.vm.box = "trusty64"
 
-  config.vm.network :private_network, ip: "192.168.77.22"
+  config.vm.network :private_network, ip: "192.168.77.33"
 
   config.vm.synced_folder ".", "/srv/"
 
@@ -16,11 +16,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.json = {
-      :php5 => {
-        :extension_dir => "20131226"
-      },
       :nginx => {
-        :mode => "symfony"
+        :mode => "node"
       }
     }
 
