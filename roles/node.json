@@ -12,8 +12,6 @@
   "run_list": [
     "recipe[initialize]",
     "recipe[nginx]",
-    "recipe[redis]",
-    "recipe[mongodb]",
     "recipe[node]"
   ]
 }

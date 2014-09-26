@@ -29,6 +29,9 @@ Vagrant.configure("2") do |config|
 
     chef.cookbooks_path = ["cookbooks"]
     chef.roles_path = "roles"
-    chef.add_role "php-mongo"
+    chef.add_role "php"
+    chef.add_recipe "node"
+    chef.add_recipe "redis"
+    chef.add_recipe "mongo"
   end
 end

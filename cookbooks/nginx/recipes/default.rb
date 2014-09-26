@@ -11,36 +11,36 @@ package "nginx-full" do
   action :install
 end
 
-# cookbook_file "nginx.conf" do
-#   source "nginx.conf"
-#   path "#{node[:nginx][:conf_dir]}/nginx.conf"
-#   owner "root"
-#   group "root"
-#   mode "0644"
-# end
+cookbook_file "nginx.conf" do
+  source "nginx.conf"
+  path "#{node[:nginx][:conf_dir]}/nginx.conf"
+  owner "root"
+  group "root"
+  mode "0644"
+end
 
-# cookbook_file "key.pem" do
-#   source "key.pem"
-#   path "#{node[:nginx][:ssl_key_dir]}/key.pem"
-#   owner "root"
-#   group "root"
-#   mode "0600"
-# end
+cookbook_file "key.pem" do
+  source "key.pem"
+  path "#{node[:nginx][:ssl_key_dir]}/key.pem"
+  owner "root"
+  group "root"
+  mode "0600"
+end
 
-# cookbook_file "cert.pem" do
-#   source "cert.pem"
-#   path "#{node[:nginx][:ssl_cert_dir]}/cert.pem"
-#   owner "root"
-#   group "root"
-#   mode "0600"
-# end
+cookbook_file "cert.pem" do
+  source "cert.pem"
+  path "#{node[:nginx][:ssl_cert_dir]}/cert.pem"
+  owner "root"
+  group "root"
+  mode "0600"
+end
 
-# template "#{node[:nginx][:conf_dir]}/sites-available/default" do
-#   source "default-#{node[:nginx][:mode]}.erb"
-#   owner "root"
-#   group "root"
-#   mode "0644"
-# end
+template "#{node[:nginx][:conf_dir]}/sites-available/default" do
+  source "default-#{node[:nginx][:mode]}.erb"
+  owner "root"
+  group "root"
+  mode "0644"
+end
 
 service "nginx" do
   supports :status => true, :restart => true, :reload => true
