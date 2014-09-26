@@ -19,8 +19,8 @@ Vagrant.configure("2") do |config|
       :nginx => {
         :mode => "symfony"
       },
-      :php => {
-        :extension_dir => '20131226'
+      :php5 => {
+        :libversion => '20131226'
       }
     }
 
@@ -32,6 +32,6 @@ Vagrant.configure("2") do |config|
     chef.add_role "php"
     chef.add_recipe "node"
     chef.add_recipe "redis"
-    chef.add_recipe "mongo"
+    chef.add_recipe "mongodb"
   end
 end
