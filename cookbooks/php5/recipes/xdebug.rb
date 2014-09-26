@@ -1,6 +1,5 @@
 package "php5-xdebug" do
   action :install
-  notifies :restart, "service[php5-fpm]"
 end
 
 cookbook_file "/etc/php5/mods-available/xdebug.ini" do
