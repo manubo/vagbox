@@ -1,1 +1,2 @@
-deb http://ams2.mirrors.digitalocean.com/mariadb/repo/10.1/ubuntu trusty main
+deb http://ams2.mirrors.digitalocean.com/mariadb/repo/10.0/ubuntu trusty main
+deb-src http://ams2.mirrors.digitalocean.com/mariadb/repo/10.0/ubuntu trusty main
