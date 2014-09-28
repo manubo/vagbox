@@ -1,5 +1,16 @@
 include_recipe "mariadb::sources"
-include_recipe "mariadb::config"
+
+package "mariadb-galera-server" do
+  action :install
+end
+
+package "galera" do
+  action :install
+end
+
+package "rsync" do
+  action :install
+end
 
 template "/etc/mysql/conf.d/cluster.cnf" do
   source "cluster.cnf.erb"
@@ -16,31 +27,5 @@ cookbook_file "debian.cnf" do
   mode "0600"
 end
 
-package "mariadb-galera-server" do
-  action :install
-end
-
-package "galera" do
-	action :install
-end
-
-package "rsync" do
-	action :install
-end
-
-if (node[:mariadb][:is_first])
-
-  service "mysql" do
-    supports :status => true, :restart => true, "force-reload" => true
-    start_command "/etc/init.d/mysql start --wsrep-new-cluster"
-    action [:enable, :start]
-  end
-
-else
-
-  service "mysql" do
-    supports :status => true, :restart => true, "force-reload" => true
-    action [:enable, :start]
-  end
-
-end
+include_recipe "mariadb::config"
+include_recipe "mariadb::service"
