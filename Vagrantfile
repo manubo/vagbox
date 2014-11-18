@@ -35,8 +35,8 @@ Vagrant.configure("2") do |config|
 
     chef.log_level = :debug
 
-    chef.cookbooks_path = ["cookbooks"]
-    chef.roles_path = "roles"
+    chef.cookbooks_path = [".chef/cookbooks"]
+    chef.roles_path = ".chef/roles"
     chef.add_role "node-mongo"
   end
 end
