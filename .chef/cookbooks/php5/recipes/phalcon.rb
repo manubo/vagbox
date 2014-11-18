@@ -21,5 +21,5 @@ bash "php5-phalcon" do
         rm -rf cphalcon
     EOH
     creates "#{node[:php5][:exension_dir]}/phalcon.so"
-    notifies :restart, "service[php5-fpm]"
+    notifies :restart, "service[php5-fpm]", :delayed
 end

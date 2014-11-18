@@ -9,6 +9,8 @@
     "recipe[apt::dotdeb]",
     "recipe[apt::dotdeb-php]",
     "recipe[apt]",
+    "recipe[packages]",
+    "recipe[python]",
     "recipe[nginx]",
     "recipe[redis]",
     "recipe[mariadb]",

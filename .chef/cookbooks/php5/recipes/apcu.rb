@@ -1,4 +1,4 @@
 package "php5-apcu" do
   action :install
-  notifies :restart, "service[php5-fpm]"
+  notifies :restart, "service[php5-fpm]", :delayed
 end

@@ -22,3 +22,8 @@ link "/etc/php5/cli/conf.d/20-mongo.ini" do
   owner "root"
   group "root"
 end
+
+package "php5-memcached" do
+  action :install
+  notifies :restart, "service[php5-fpm]", :delayed
+end
