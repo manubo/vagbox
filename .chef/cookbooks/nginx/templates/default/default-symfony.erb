@@ -11,11 +11,11 @@ server {
     ssl_protocols        SSLv3 TLSv1;
     ssl_ciphers HIGH:!aNULL:!MD5;
     
-    server_name HOST_NAME.local;
-    root /srv/www/HOST_NAME/web;
+    server_name <%= node[:project][:name] %>.local;
+    root /srv/www/<%= node[:project][:name] %>/web;
  
-    error_log /var/log/nginx/HOST_NAME.error.log;
-    access_log /var/log/nginx/HOST_NAME.access.log;
+    error_log /var/log/nginx/<%= node[:project][:name] %>.error.log;
+    access_log /var/log/nginx/<%= node[:project][:name] %>.access.log;
  
     # strip app.php/ prefix if it is present
     rewrite ^/app_dev\.php/?(.*)$ /$1 permanent;
