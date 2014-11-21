@@ -1,5 +1,5 @@
 {
-  "name": "java-mysql",
+  "name": "java",
   "chef_type": "role",
   "json_class": "Chef::Role",
   "default_attributes": { },
@@ -8,7 +8,6 @@
   "description": "The role for a system using java with mysql",
   "run_list": [
     "recipe[apt]",
-    "recipe[java-openjdk-7-jdk]",
-    "recipe[redis]"
+    "recipe[java-openjdk-7-jdk]"
   ]
 }

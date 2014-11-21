@@ -1,5 +1,5 @@
 {
-  "name": "node-mongo",
+  "name": "node",
   "chef_type": "role",
   "json_class": "Chef::Role",
   "default_attributes": { },
