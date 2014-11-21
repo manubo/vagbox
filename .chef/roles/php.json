@@ -5,7 +5,7 @@
   "default_attributes": { },
   "description": "The role for a system using PHP 5.5 with mongodb",
   "run_list": [
-    "recipe[initialize]",
+    "recipe[apt]",
     "recipe[nginx]",
     "recipe[php5]",
     "recipe[php5::cli]",

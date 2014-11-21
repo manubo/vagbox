@@ -1,5 +1,5 @@
 .DS_Store
 .vagrant/
-www/
+httpd/
 *.swp
 Vagrantfile
