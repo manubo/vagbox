@@ -8,8 +8,8 @@ EOF
   creates "/usr/share/elasticsearch/bin/elasticsearch"
 end
 
-template "elasticsearch" do
-  path "#{node[:nginx][:conf_dir]}/sites-available/elasticsearch"
+template "#{node[:nginx][:conf_dir]}/sites-available/elasticsearch.conf" do
+  source "elasticsearch.erb"
   owner "root"
   group "root"
   mode "0644"

@@ -16,6 +16,9 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.json = {
+      :project => {
+        :name => NAME
+      },
       :nginx => {
         :mode => "symfony"
       },
