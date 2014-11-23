@@ -42,6 +42,10 @@ template "#{node[:nginx][:conf_dir]}/sites-available/default.conf" do
   mode "0644"
 end
 
+link "#{node[:nginx][:conf_dir]}/sites-enabled/default.conf" do
+  to "#{node[:nginx][:conf_dir]}/sites-available/default.conf"
+end
+
 service "nginx" do
   supports :status => true, :restart => true, :reload => true
   action [ :enable, :start ]

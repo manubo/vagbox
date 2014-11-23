@@ -4,6 +4,7 @@ execute "elasticsearch" do
 wget #{node[:elasticsearch][:download]}
 dpkg -i #{node[:elasticsearch][:package]}
 /usr/share/elasticsearch/bin/plugin -install mobz/elasticsearch-head
+rm #{node[:elasticsearch][:package]}
 EOF
   creates "/usr/share/elasticsearch/bin/elasticsearch"
 end
@@ -15,8 +16,8 @@ template "#{node[:nginx][:conf_dir]}/sites-available/elasticsearch.conf" do
   mode "0644"
 end
 
-link "#{node[:nginx][:conf_dir]}/sites-enabled/elasticsearch" do
-  to "#{node[:nginx][:conf_dir]}/sites-available/elasticsearch"
+link "#{node[:nginx][:conf_dir]}/sites-enabled/elasticsearch.conf" do
+  to "#{node[:nginx][:conf_dir]}/sites-available/elasticsearch.conf"
 end
 
 service "elasticsearch" do

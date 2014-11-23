@@ -14,7 +14,6 @@
     "recipe[php5::intl]",
     "recipe[php5::gettext]",
     "recipe[php5::mysql]",
-    "recipe[php5::mongo]",
     "recipe[php5::redis]",
     "recipe[php5::memcached]",
     "recipe[php5::curl]",
