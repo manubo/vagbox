@@ -10,8 +10,8 @@
   },
   "description": "The role for a system using node.js with mongodb",
   "run_list": [
-    "recipe[apt]",
-    "recipe[nginx]",
-    "recipe[node]"
+    "recipe[node]",
+    "recipe[node::bower]",
+    "recipe[node::gulp]"
   ]
 }
