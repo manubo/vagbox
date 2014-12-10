@@ -1,9 +1,9 @@
 server {
     listen       8080;
-    server_name  <%= node[:sys][:name] %>.local;
+    server_name  <%= node[:project][:name] %>.local;
 
-    error_log   /var/log/nginx/<%= node[:sys][:name] %>.error.log;
-    access_log  /var/log/nginx/<%= node[:sys][:name] %>.access.log;
+    error_log   /var/log/nginx/<%= node[:project][:name] %>.error.log;
+    access_log  /var/log/nginx/<%= node[:project][:name] %>.access.log;
 
     location ~ ^/_cluster(/|$) {
         return 403;

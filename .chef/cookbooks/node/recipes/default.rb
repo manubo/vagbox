@@ -1,26 +1,10 @@
-execute "nodejs_cleanup" do
+execute "nodejs_setup" do
     cwd "/tmp"
-    command "rm -rf node"
-    action :nothing
+    command "curl -sL https://deb.nodesource.com/setup | sudo bash -"
+    not_if { File.exists? 'usr/bin/nodejs' }
+    notifies :run, "package[nodejs]", :immediately
 end
 
-bash "nodejs_install" do
-    user "root"
-    cwd "/tmp/node"
-    code <<-EOH
-        git checkout #{node[:node][:version]}
-        ./configure
-        make
-        make install
-    EOH
-    only_if "test -d /tmp/node"
+package "nodejs" do 
     action :nothing
-    notifies :run, "execute[nodejs_cleanup]", :immediately
-end
-
-execute "nodejs_clone" do
-    cwd "/tmp"
-    command "git clone https://github.com/joyent/node.git"
-    not_if { File.exists?("/usr/local/bin/node") }
-    notifies :run, "bash[nodejs_install]", :immediately
 end
