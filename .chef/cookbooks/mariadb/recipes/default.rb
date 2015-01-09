@@ -5,4 +5,8 @@ package "mariadb-server" do
   action :install
 end
 
+package "libmariadbclient-dev" do
+  action :install
+end
+
 include_recipe "mariadb::config"
