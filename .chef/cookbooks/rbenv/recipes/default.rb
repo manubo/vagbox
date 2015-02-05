@@ -1,3 +1,5 @@
+include_recipe "rbenv::packages"
+
 git "/home/vagrant/.rbenv" do
   user "vagrant"
   group "vagrant"
@@ -17,7 +19,6 @@ bash "rbenv_configure" do
   EOH
   action :nothing
 end
-
 
 directory "/home/vagrant/.rbenv/plugins" do
   owner "vagrant"
